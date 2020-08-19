@@ -1,4 +1,4 @@
-# Pneumonia Detection using Deep Learning
+# Pneumonia Detection using Deep Learning (PyTorch)
 
 
 
@@ -11,6 +11,12 @@
 
 
 ***Feel free to improve upon the project by using the [TRAINING Kaggle notebook](https://www.kaggle.com/sovitrath/rsna-pytorch-hackathon-fasterrcnn-resnet-training/notebook) and [TEST Kaggle notebook](https://www.kaggle.com/sovitrath/rsna-pytorch-hackathon-fasterrcnn-resnet-test/notebook).***
+
+
+
+## <u>Framework Used</u>
+
+***This project used the PyTorch deep learning framework. Use PyTorch version >= 1.4 to reproduce the results.***
 
 
 
