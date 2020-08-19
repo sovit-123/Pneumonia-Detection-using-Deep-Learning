@@ -84,3 +84,7 @@ The following is the directory structure of the project. You will be able to dir
 
   ![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/some_results/1ff10836-3179-4bdb-9c7c-b24acbb4051c.jpg?raw=true)
 
+## <u>References</u>
+
+* [Deep Learning for Automatic Pneumonia Detection](https://arxiv.org/pdf/2005.13899v1.pdf).
+* [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks.](https://arxiv.org/abs/1506.01497)
