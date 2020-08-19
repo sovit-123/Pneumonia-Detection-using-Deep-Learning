@@ -6,6 +6,8 @@
 
 ***This project aims to detect pneumonia from chest radio graph images. This project uses data from the [RSNA Pneumonia Detection Challenge](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview). The results and evaluation metric plots presented here also uses the same metric as was in the competition.*** 
 
+![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/preview_image/preview_image.jpg?raw=true)
+
 
 
 ***Feel free to improve upon the project by using the [TRAINING Kaggle notebook](https://www.kaggle.com/sovitrath/rsna-pytorch-hackathon-fasterrcnn-resnet-training/notebook) and [TEST Kaggle notebook](https://www.kaggle.com/sovitrath/rsna-pytorch-hackathon-fasterrcnn-resnet-test/notebook).***
@@ -62,7 +64,23 @@ The following is the directory structure of the project. You will be able to dir
 
 
 
+## <u>Results</u>
 
+* The following the private and public leaderboard score as per the competition metric of Average Precision.
 
+  |                       | Private Leaderboard | Public  Leaderboard |
+  | --------------------- | ------------------- | ------------------- |
+  | **Average Precision** | 0.12993             | 0.11904             |
 
+* **Validation Precision Plot**
+
+  ![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/precision.png?raw=true)
+
+* **Loss Plot**
+
+  ![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/loss.png?raw=true)
+
+* **Detection on a Test Image**
+
+  ![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/some_results/1ff10836-3179-4bdb-9c7c-b24acbb4051c.jpg?raw=true)
 
