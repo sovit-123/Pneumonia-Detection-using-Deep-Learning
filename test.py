@@ -67,10 +67,11 @@ with torch.no_grad():
                 boxes = outputs[0]['boxes'].data.cpu().numpy()
                 scores = outputs[0]['scores'].data.cpu().numpy()
                 boxes = boxes[scores >= detection_threshold].astype(np.int32)
+                draw_boxes = boxes.copy()
                 boxes[:, 2] = boxes[:, 2] - boxes[:, 0]
                 boxes[:, 3] = boxes[:, 3] - boxes[:, 1]
             
-            for box in boxes:
+            for box in draw_boxes:
                 cv2.rectangle(orig_image,
                             (int(box[0]), int(box[1])),
                             (int(box[2]), int(box[3])),
