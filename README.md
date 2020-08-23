@@ -88,7 +88,7 @@ The following is the directory structure of the project. You will be able to dir
 
 * **Detection on a Test Image**
 
-  ![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/some_results/1ff10836-3179-4bdb-9c7c-b24acbb4051c.jpg?raw=true)
+  ![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/some_results/00ad18b7-06ee-4c4d-abca-14bdf814e8b2.jpg?raw=true)
 
 ## <u>References</u>
 
