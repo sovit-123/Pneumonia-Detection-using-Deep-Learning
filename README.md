@@ -58,6 +58,18 @@ The following is the directory structure of the project. You will be able to dir
 
 
 
+## <u>Run the Detection API on Your LocalHost</u>
+
+* **I have made this really simple.**
+
+1. Clone this repository to your local disk.
+2. Run the `requirements.txt` file using `pip install -r requirements.txt`.
+3. Run the `app.py` script using `python app.py`.
+4. Open `127.0.0.1:12000` in your browser. 
+5. Choose a lung x-ray image from your disk and click on the `Predict` button. 
+
+
+
 ## <u>Training and Testing</u>
 
 * **First run** `dcm_to_jpg.py` to convert all the DICOM images to JPG images and save them in the `inout/images` folder. Change  the paths according to your need if want to structure your project differently.

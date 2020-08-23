@@ -1,14 +1,6 @@
-# way to upload image: endpoint
-# way to save the image
-# function to make prediction on the image
-# show the results
 import os
 import torch
 import cv2
-
-import albumentations
-import pretrainedmodels
-
 import numpy as np
 import torch.nn as nn
 
@@ -50,7 +42,7 @@ def model():
 def format_prediction_string(boxes, scores):
     pred_strings = []
     for j in zip(scores, boxes):
-        pred_strings.append("Confidence: {0:.4f} Coords: {1} {2} {3} {4}".format(j[0]*100, j[1][0], j[1][1], j[1][2], j[1][3]))
+        pred_strings.append("Confidence: {0:.4f}, Coordinates: {1} {2} {3} {4}".format(j[0]*100, j[1][0], j[1][1], j[1][2], j[1][3]))
 
     return " ".join(pred_strings)
 
@@ -106,15 +98,11 @@ def predict(image_path, model):
             }
             results.append(result)
 
+    print(results[0]['Prediction'])
     if results[0]['Prediction'] == None or results[0]['Prediction'] == '':
-        # orig_image = cv2.imread(test_images, cv2.IMREAD_COLOR)
-        # plt.imshow(cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB))
-        # plt.axis('off')
-        # plt.savefig(f"static/prediction/{image_path.split(os.path.sep)[-1]}")
-        # plt.close()
-        return 'No Pneumonia found. Patient is Healthy.'
+        return 'No pneumonia found. Patient is healthy.', False
     else:
-        return results[0]
+        return results[0]['Prediction'], True
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -127,8 +115,8 @@ def upload_predict():
                 image_file.filename
             )
             image_file.save(image_location)
-            pred = predict(image_location, MODEL)
-            return render_template("index.html", prediction=pred, image_loc=True, name=image_file.filename)
+            pred, show_image = predict(image_location, MODEL)
+            return render_template("index.html", prediction=pred, show_image=show_image, name=image_file.filename)
     return render_template("index.html", prediction=0, image_loc=None)
 
 
