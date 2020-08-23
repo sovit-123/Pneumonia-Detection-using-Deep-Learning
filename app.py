@@ -124,4 +124,5 @@ if __name__ == "__main__":
     MODEL = model()
     MODEL.load_state_dict(torch.load("fasterrcnn_resnet50_fpn.pth", map_location=torch.device(DEVICE)))
     MODEL.to(DEVICE)
-    app.run(host="127.0.0.1", port=12000, debug=True)
+    # app.run(host="127.0.0.1", port=12000, debug=True) # ucomment this when running on local machine
+    app.run(debug=True)
