@@ -3,6 +3,6 @@ jinja2==2.11.2
 numpy==1.18.5
 pandas==1.1.0
 pillow==7.2.0
-torch==1.6.0
-torchvision==0.7.0
+torch==1.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.7.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 gunicorn==19.9.0
