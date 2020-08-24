@@ -62,7 +62,7 @@ The following is the directory structure of the project. You will be able to dir
 
 * **I have made this really simple.**
 
-![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/some_results/api.PNG?raw=true)
+![](https://github.com/sovit-123/Pneumonia-Detection-using-Deep-Learning/blob/master/some_results/api_new.PNG?raw=true)
 
 1. Clone this repository to your local disk.
 2. Run the `requirements.txt` file using `pip install -r requirements.txt`.
