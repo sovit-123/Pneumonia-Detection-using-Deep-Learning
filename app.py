@@ -1,14 +1,16 @@
 import os
 import torch
-import cv2
+# import cv2
 import numpy as np
 import torch.nn as nn
 
 import torch
 import torchvision
 import matplotlib.pyplot as plt
+import torchvision.transforms as transforms
 
 from flask import Flask
+from PIL import Image, ImageDraw
 from flask import request
 from flask import render_template
 from torch.nn import functional as F
@@ -46,16 +48,22 @@ def format_prediction_string(boxes, scores):
     return " ".join(pred_strings)
 
 def predict(image_path, model):
+    # define the torchvision image transforms
+    transform = transforms.Compose([
+        transforms.ToTensor(),
+    ])
     results = []
     detection_threshold = 0.9
     model.eval()
     with torch.no_grad():
         test_images = image_path
-        orig_image = cv2.imread(test_images, cv2.IMREAD_COLOR)
-        image = cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB)
-        image = image/255.0
-        image = np.transpose(image, (2, 0, 1)).astype(np.float)
-        image = torch.tensor(image, dtype=torch.float).to(DEVICE)
+        # orig_image = cv2.imread(test_images, cv2.IMREAD_COLOR)
+        orig_image = Image.open(test_images)
+        # image = cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB)
+        # image = image/255.0
+        image = orig_image.copy()
+        # image = np.transpose(image, (2, 0, 1)).astype(np.float)
+        image = transform(image).to(DEVICE)
         image = torch.unsqueeze(image, 0)
 
         cpu_device = torch.device("cpu")
@@ -73,12 +81,18 @@ def predict(image_path, model):
                 boxes[:, 3] = boxes[:, 3] - boxes[:, 1]
                 
             for box in draw_boxes:
-                cv2.rectangle(orig_image,
-                            (int(box[0]), int(box[1])),
-                            (int(box[2]), int(box[3])),
-                            (0, 0, 255), 3)
+                draw = ImageDraw.Draw(orig_image)   
+                draw.rectangle([(box[0], box[1]), (box[2], box[3])], 
+                                     fill="#ffff33", outline ="red") 
+                # img.show() 
+                # cv2.rectangle(orig_image,
+                #             (int(box[0]), int(box[1])),
+                #             (int(box[2]), int(box[3])),
+                #             (0, 0, 255), 3)
         
-            plt.imshow(cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB))
+            # plt.imshow(cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB))
+            orig_image = np.array(orig_image, dtype=np.float32)
+            plt.imshow(orig_image)
             plt.axis('off')
             print('PATH.......', image_path)
             plt.savefig(f"static/prediction/{image_path.split(os.path.sep)[-1]}")
