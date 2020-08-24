@@ -82,8 +82,7 @@ def predict(image_path, model):
                 
             for box in draw_boxes:
                 draw = ImageDraw.Draw(orig_image)   
-                draw.rectangle([(box[0], box[1]), (box[2], box[3])], 
-                                     fill="#ffff33", outline ="red") 
+                draw.rectangle([(box[0], box[1]), (box[2], box[3])], outline ="red") 
                 # img.show() 
                 # cv2.rectangle(orig_image,
                 #             (int(box[0]), int(box[1])),
@@ -92,7 +91,7 @@ def predict(image_path, model):
         
             # plt.imshow(cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB))
             orig_image = np.array(orig_image, dtype=np.float32)
-            plt.imshow(orig_image)
+            plt.imshow(orig_image, cmap='gray')
             plt.axis('off')
             print('PATH.......', image_path)
             plt.savefig(f"static/prediction/{image_path.split(os.path.sep)[-1]}")
