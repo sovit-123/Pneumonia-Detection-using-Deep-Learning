@@ -1,7 +1,7 @@
 flask==1.1.2
 jinja2==2.11.2
 numpy==1.18.5
-pandas==1.1.0
+# pandas==1.1.0
 pillow==7.2.0
 https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
 https://download.pytorch.org/whl/cpu/torchvision-0.7.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
