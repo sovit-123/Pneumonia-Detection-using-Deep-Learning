@@ -1,12 +1,10 @@
 import os
 import torch
-# import cv2
 import numpy as np
 import torch.nn as nn
 
 import torch
 import torchvision
-# import matplotlib.pyplot as plt
 import torchvision.transforms as transforms
 
 from flask import Flask
@@ -57,13 +55,9 @@ def predict(image_path, model):
     model.eval()
     with torch.no_grad():
         test_images = image_path
-        # orig_image = cv2.imread(test_images, cv2.IMREAD_COLOR)
         orig_image = Image.open(test_images)
         orig_image = orig_image.convert('RGB')
-        # image = cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB)
-        # image = image/255.0
         image = orig_image.copy()
-        # image = np.transpose(image, (2, 0, 1)).astype(np.float)
         image = transform(image).to(DEVICE)
         image = torch.unsqueeze(image, 0)
 
@@ -84,29 +78,17 @@ def predict(image_path, model):
             for box in draw_boxes:
                 draw = ImageDraw.Draw(orig_image)   
                 draw.rectangle([(box[0], box[1]), (box[2], box[3])], outline ="red") 
-                # img.show() 
-                # cv2.rectangle(orig_image,
-                #             (int(box[0]), int(box[1])),
-                #             (int(box[2]), int(box[3])),
-                #             (0, 0, 255), 3)
+                draw.rectangle([(box[0]+1, box[1]+1), (box[2]+1, box[3]+1)], outline ="red") 
         
-            # plt.imshow(cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB))
-            # orig_image = np.array(orig_image, dtype=np.float32)
-            # plt.imshow(orig_image, cmap='gray')
-            # plt.axis('off')
             print('PATH.......', image_path)
-            # plt.savefig(f"static/prediction/{image_path.split(os.path.sep)[-1]}")
             orig_image.save(f"static/prediction/{image_path.split(os.path.sep)[-1]}")
-            # plt.close()
                     
             result = {
-                # 'patientId': test_images[i].split('.')[0],
                 'Prediction': format_prediction_string(boxes, scores)
             }
             results.append(result)
         else:
             result = {
-                # 'patientId': test_images[i].split('.')[0],
                 'Prediction': None
             }
             results.append(result)
