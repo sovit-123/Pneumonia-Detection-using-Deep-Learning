@@ -1,27 +1,10 @@
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  background-color: #ffffff;
-}
-
 .form-upload {
-  width: 100%;
+  width: 100%; 
   max-width: 330px;
   padding: 15px;
-  margin: 0 auto;
+  margin-right: 500px;
 }
+
 .form-upload .checkbox {
   font-weight: 400;
 }
@@ -29,7 +12,7 @@ body {
   position: relative;
   box-sizing: border-box;
   height: auto;
-  margin-top: 10px;
+  margin: auto;
   padding: 10px;
   font-size: 16px;
 }

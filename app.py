@@ -20,7 +20,6 @@ from torchvision.models.detection.rpn import AnchorGenerator
 app = Flask(__name__)
 UPLOAD_FOLDER = "api_image_store"
 DEVICE = "cpu"
-MODEL = None
 
 def model():
     # load the COCO pre-trained model
@@ -47,7 +46,6 @@ def format_prediction_string(boxes, scores):
     return " ".join(pred_strings)
 
 def predict(image_path, model):
-    model.to(DEVICE)
     results = []
     detection_threshold = 0.9
     model.eval()
