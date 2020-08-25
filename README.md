@@ -2,7 +2,7 @@
 
 
 
-**[Try the live demo here](https://dashboard.heroku.com/apps/pneumonia-detection-dl) => https://dashboard.heroku.com/apps/pneumonia-detection-dl**
+**[Try the live demo here](https://pneumonia-detection-dl.herokuapp.com/) => https://pneumonia-detection-dl.herokuapp.com/**
 
 
 
