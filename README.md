@@ -2,6 +2,10 @@
 
 
 
+**[Try the live demo here](https://dashboard.heroku.com/apps/pneumonia-detection-dl) => https://dashboard.heroku.com/apps/pneumonia-detection-dl**
+
+
+
 ## <u>About the Project</u>
 
 ***This project aims to detect pneumonia from chest radio graph images. This project uses data from the [RSNA Pneumonia Detection Challenge](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview). The results and evaluation metric plots presented here also uses the same metric as was in the competition.*** 
